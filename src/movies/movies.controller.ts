@@ -44,9 +44,23 @@ export class MoviesController {
 
   @Patch(':id')
   patch(@Param('id') movieId: string, @Body() updateData) {
-    return {
-      updatedMovie: movieId,
-      ...updateData,
-    };
+    return this.moviesService.update(movieId, updateData);
   }
 }
+
+/* test raw body data
+
+1) post
+
+{
+  "title": "소드 아트 온라인",
+  "year": 2019,
+  "genres": ["action", "animation"]
+}
+
+2) update
+
+{
+  "year": 2022
+}
+*/
