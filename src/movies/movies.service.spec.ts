@@ -19,6 +19,11 @@ describe('MoviesService', () => {
     });
   });
 
+  // afterAll(() => {
+  //   service.deleteOne(1);
+  //   console.log(service.getAll());
+  // });
+
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
