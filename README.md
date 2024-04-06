@@ -1,73 +1,65 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## # 0. 준비
+___
+1. 사전 준비<br/><br/>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+    `Nest.JS`를 사용하기 위해서는 먼저 전역으로 `@nestjs/cli`를 설치해줘야 한다.<br/>
+    백엔드 애플리케이션 개발인 경우 되도록 `yarn` 보다 `npm` 사용을 권장한다.<br/>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+    ```shell
+    npm i -g @nestjs/cli
+    ```
+    설치가 완료됐다면, 아래 명령 시 nest 관련 명령어를 보여주게 된다.
+    ```shell
+    nest
+    ```
+    결과
+    ```shell
+    Usage: nest <command> [options]
+    
+    Options:
+    -v, --version                                   Output the current version.
+    -h, --help                                      Output usage information.
+    
+    Commands:
+    new|n [options] [name]                          Generate Nest application.
+    build [options] [app]                           Build Nest application.
+    start [options] [app]                           Run Nest application.
+    info|i                                          Display Nest project details.
+    add [options] <library>                         Adds support for an external library to your project.
+    generate|g [options] <schematic> [name] [path]  Generate a Nest element.
+    Schematics available on @nestjs/schematics collection:
+    ┌───────────────┬─────────────┬──────────────────────────────────────────────┐
+    │ name          │ alias       │ description                                  │
+    │ application   │ application │ Generate a new application workspace         │
+    │ class         │ cl          │ Generate a new class                         │
+    │ configuration │ config      │ Generate a CLI configuration file            │
+    │ controller    │ co          │ Generate a controller declaration            │
+    │ decorator     │ d           │ Generate a custom decorator                  │
+    │ filter        │ f           │ Generate a filter declaration                │
+    │ gateway       │ ga          │ Generate a gateway declaration               │
+    │ guard         │ gu          │ Generate a guard declaration                 │
+    │ interceptor   │ itc         │ Generate an interceptor declaration          │
+    │ interface     │ itf         │ Generate an interface                        │
+    │ library       │ lib         │ Generate a new library within a monorepo     │
+    │ middleware    │ mi          │ Generate a middleware declaration            │
+    │ module        │ mo          │ Generate a module declaration                │
+    │ pipe          │ pi          │ Generate a pipe declaration                  │
+    │ provider      │ pr          │ Generate a provider declaration              │
+    │ resolver      │ r           │ Generate a GraphQL resolver declaration      │
+    │ resource      │ res         │ Generate a new CRUD resource                 │
+    │ service       │ s           │ Generate a service declaration               │
+    │ sub-app       │ app         │ Generate a new application within a monorepo │
+    └───────────────┴─────────────┴──────────────────────────────────────────────┘
 
-## Description
+    ```
+    위 nest 명령어들은 Nest.JS 백엔드 앱 개발에 필수로 사용된다.<br/><br/>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+2. 프로젝트 생성<br/><br/>
 
-## Installation
+    본격적으로 Nest.JS 앱을 개발하려면 아래 명령으로 프로젝트를 생성한다.<br/>
 
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+    ```shell
+    nest new
+    ```
+    이후 프로젝트명을 입력하라고 뜨는데, 생각해둔 이름을 지어주고 엔터를 누른다.<br/>
+    그 다음엔 프로젝트에 `yarn`과 `npm`중 뭘 쓸 건지 골라야 하는데, `npm`을 추천한다.<br/><br/>
